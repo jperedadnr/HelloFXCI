@@ -14,7 +14,7 @@ public class HelloFX extends Application {
         final var webView = new WebView();
         webView.getEngine().getLoadWorker().stateProperty().addListener((obs, ov, nv) -> System.out.println("state = " + nv));
         webView.getEngine().getLoadWorker().exceptionProperty().addListener((obs, ov, nv) -> nv.printStackTrace());
-        webView.getEngine().load("https://www.bbc.co.uk");
+        webView.getEngine().load("https://wikipedia.org");
         Scene scene = new Scene(webView, 640, 480);
         stage.setScene(scene);
         stage.show();
