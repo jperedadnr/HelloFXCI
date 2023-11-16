@@ -25,6 +25,10 @@ public class HelloFX extends Application {
     }
 
     public static void main(String[] args) {
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+            System.out.println("e = " + e.getMessage());
+            e.printStackTrace();
+        });
         launch(args);
     }
 
