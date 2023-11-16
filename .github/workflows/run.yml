@@ -27,8 +27,9 @@ jobs:
           cd ../
           rm -rf HelloFXCI.zip
           zip -r HelloFXCI.zip HelloFXCI -x ".git/*"
+          cd HelloFXCI
           mkdir staging
-          cp HelloFXCI.zip staging/HelloFXCI.zip
+          cp ../HelloFXCI.zip staging/HelloFXCI.zip
 
       - name: Upload
         if: always()
