@@ -21,3 +21,19 @@ jobs:
         run: |
           mvn clean javafx:run
 
+      - name: Make staging directory
+        run: mkdir staging
+
+      - name: Zip Folder
+        run: |
+          cd ../
+          rm -rf HelloFXCI.zip
+          zip -r HelloFXCI.zip HelloFXCI -x ".git/*"
+          mkdir staging
+          cp HelloFXCI.zip staging/HelloFXCI.zip
+
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: Package
+          path: staging
