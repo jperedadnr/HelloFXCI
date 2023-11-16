@@ -1,9 +1,12 @@
 package hellofx;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class HelloFX extends Application {
 
@@ -15,6 +18,10 @@ public class HelloFX extends Application {
         Scene scene = new Scene(webView, 640, 480);
         stage.setScene(scene);
         stage.show();
+
+        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(5));
+        pauseTransition.setOnFinished(f -> Platform.exit());
+        pauseTransition.play();
     }
 
     public static void main(String[] args) {
