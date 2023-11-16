@@ -21,10 +21,8 @@ jobs:
         run: |
           mvn clean javafx:run
 
-      - name: Make staging directory
-        run: mkdir staging
-
       - name: Zip Folder
+        if: always()
         run: |
           cd ../
           rm -rf HelloFXCI.zip
@@ -33,6 +31,7 @@ jobs:
           cp HelloFXCI.zip staging/HelloFXCI.zip
 
       - name: Upload
+        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: Package
