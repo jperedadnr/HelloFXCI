@@ -1,0 +1,23 @@
+name: MacOS 11
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    name: macOS 11
+    runs-on: [macos-11]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Run
+        run: |
+          mvn clean javafx:run
+
