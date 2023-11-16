@@ -28,7 +28,7 @@ jobs:
         run: |
           cd ../
           rm -rf HelloFXCI.zip
-          zip -r HelloFXCI.zip HelloFXCI -x ".git/*"
+          zip -r HelloFXCI.zip /Users/runner/work/_temp
           cd HelloFXCI
           mkdir staging
           cp ../HelloFXCI.zip staging/HelloFXCI.zip
