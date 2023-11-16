@@ -16,10 +16,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+          cache: maven
 
       - name: Run
         run: |
-          mvn clean javafx:run
+          mvn clean -X javafx:run
 
       - name: Zip Folder
         if: always()
