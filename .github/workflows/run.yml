@@ -20,9 +20,8 @@ jobs:
 
       - name: Run
         run: |
-          ulimit
-          mvn clean compile
-          java --module-path /Users/runner/.m2/repository/org/openjfx/javafx-base/17.0.9/javafx-base-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-base/17.0.9/javafx-base-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-controls/17.0.9/javafx-controls-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-controls/17.0.9/javafx-controls-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-graphics/17.0.9/javafx-graphics-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-graphics/17.0.9/javafx-graphics-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-media/17.0.9/javafx-media-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-media/17.0.9/javafx-media-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-web/17.0.9/javafx-web-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-web/17.0.9/javafx-web-17.0.9.jar --add-modules javafx.web -classpath /Users/runner/work/HelloFXCI/HelloFXCI/target/classes hellofx.HelloFX
+          mvn clean javafx:run
+#          java --module-path /Users/runner/.m2/repository/org/openjfx/javafx-base/17.0.9/javafx-base-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-base/17.0.9/javafx-base-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-controls/17.0.9/javafx-controls-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-controls/17.0.9/javafx-controls-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-graphics/17.0.9/javafx-graphics-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-graphics/17.0.9/javafx-graphics-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-media/17.0.9/javafx-media-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-media/17.0.9/javafx-media-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-web/17.0.9/javafx-web-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-web/17.0.9/javafx-web-17.0.9.jar --add-modules javafx.web -classpath /Users/runner/work/HelloFXCI/HelloFXCI/target/classes hellofx.HelloFX
 
       - name: Zip Folder
         if: always()
