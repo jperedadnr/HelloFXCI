@@ -20,22 +20,7 @@ jobs:
 
       - name: Run
         run: |
-          mvn clean -X javafx:run
-#          java --module-path /Users/runner/.m2/repository/org/openjfx/javafx-base/17.0.9/javafx-base-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-base/17.0.9/javafx-base-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-controls/17.0.9/javafx-controls-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-controls/17.0.9/javafx-controls-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-graphics/17.0.9/javafx-graphics-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-graphics/17.0.9/javafx-graphics-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-media/17.0.9/javafx-media-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-media/17.0.9/javafx-media-17.0.9.jar:/Users/runner/.m2/repository/org/openjfx/javafx-web/17.0.9/javafx-web-17.0.9-mac.jar:/Users/runner/.m2/repository/org/openjfx/javafx-web/17.0.9/javafx-web-17.0.9.jar --add-modules javafx.web -classpath /Users/runner/work/HelloFXCI/HelloFXCI/target/classes hellofx.HelloFX
-
-      - name: Zip Folder
-        if: always()
-        run: |
-          cd ../
-          rm -rf HelloFXCI.zip
-          zip -r HelloFXCI.zip HelloFXCI -x ".git/*"
-          cd HelloFXCI
-          mkdir staging
-          cp ../HelloFXCI.zip staging/HelloFXCI.zip
-
-      - name: Upload
-        if: always()
-        uses: actions/upload-artifact@v2
-        with:
-          name: Package
-          path: staging
+          cp settings.xml /Users/runner/.m2/settings.xml
+          export r2={secrets.R2}
+          export r3={secrets.R3}
+          mvn clean -Dr1={secrets.R1} javafx:run
