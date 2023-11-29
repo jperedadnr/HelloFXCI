@@ -21,6 +21,6 @@ jobs:
       - name: Run
         run: |
           cp settings.xml /Users/runner/.m2/settings.xml
-          export r2={secrets.R2}
-          export r3={secrets.R3}
-          mvn clean -Dr1={secrets.R1} javafx:run
+          export r2=${{secrets.R2}}
+          export r3=${{secrets.R3}}
+          mvn clean -Dr1=${{secrets.R1}} javafx:run
