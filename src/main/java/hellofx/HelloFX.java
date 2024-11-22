@@ -4,18 +4,15 @@ import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
-import javafx.scene.web.WebView;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class HelloFX extends Application {
 
     public void start(Stage stage) {
-        final var webView = new WebView();
-        webView.getEngine().getLoadWorker().stateProperty().addListener((obs, ov, nv) -> System.out.println("state = " + nv));
-        webView.getEngine().getLoadWorker().exceptionProperty().addListener((obs, ov, nv) -> nv.printStackTrace());
-        webView.getEngine().load("https://wikipedia.org");
-        Scene scene = new Scene(webView, 640, 480);
+        Scene scene = new Scene(new StackPane(new Label("Hi")), 640, 480);
         stage.setScene(scene);
         stage.show();
 

@@ -11,18 +11,15 @@
     <properties>
         <main.class>hellofx.HelloFX</main.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>11</maven.compiler.release>
-<!--        <javafx.version>17.0.9</javafx.version>-->
-<!--        <javafx.version>22-ea+16</javafx.version>-->
-        <javafx.version>17.0.9-ea+c33</javafx.version>
+        <maven.compiler.release>21</maven.compiler.release>
+        <javafx.version>23.0.1</javafx.version>
         <javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
-        <r1/>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
-            <artifactId>javafx-web</artifactId>
+            <artifactId>javafx-controls</artifactId>
             <version>${javafx.version}</version>
         </dependency>
     </dependencies>
@@ -41,15 +38,11 @@
                 <version>${javafx.maven.plugin.version}</version>
                 <configuration>
                     <mainClass>${main.class}</mainClass>
+                    <options>
+                        <option>-Dprism.verbose=true</option>
+                    </options>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-    <repositories>
-        <repository>
-            <id>myRepo</id>
-            <url>${r1}</url>
-        </repository>
-    </repositories>
 </project>

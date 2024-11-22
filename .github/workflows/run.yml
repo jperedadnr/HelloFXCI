@@ -1,4 +1,4 @@
-name: MacOS 11
+name: build
 
 on:
   push:
@@ -6,21 +6,17 @@ on:
 
 jobs:
   build:
-    name: macOS 11
-    runs-on: [macos-11]
+    name: macOS
+    runs-on: [macos-latest]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Java
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
-          java-version: '17'
-          cache: maven
+          java-version: '22'
 
       - name: Run
         run: |
-          cp settings.xml /Users/runner/.m2/settings.xml
-          export r2=${{secrets.R2}}
-          export r3=${{secrets.R3}}
-          mvn clean -Dr1=${{secrets.R1}} javafx:run
+          mvn clean javafx:run
