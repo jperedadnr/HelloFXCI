@@ -8,7 +8,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ macos-latest, ubuntu-latest, windows-latest ]
+        os: [ macos-13, macos-14, ubuntu-latest, windows-latest ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -19,12 +19,14 @@ jobs:
           distribution: 'temurin'
           java-version: '22'
 
-      - name: setup (Linux)
+      - name: run (Linux)
         if: runner.os == 'Linux'
         run: |
           export DISPLAY=:90
           Xvfb -ac :90 -screen 0 1280x1024x24 > /dev/null 2>&1 &
+          mvn -ntp clean javafx:run
 
       - name: Run
+        if: runner.os != 'Linux'
         run: |
           mvn -ntp clean javafx:run
